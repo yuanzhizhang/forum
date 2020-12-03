@@ -45,14 +45,14 @@ public class ArticleAllServlet extends HttpServlet {
         session.setAttribute("id",id);
         resp.sendRedirect(req.getContextPath() + "/home.jsp");
 
-        BaseResponse<List<Article>> response = new BaseResponse<List<Article>>();
-        response.setCode(200);
-        response.setMsg("请求成功");
-        response.setData(articles);
+//        BaseResponse<List<Article>> response = new BaseResponse<List<Article>>();
+//        response.setCode(200);
+//        response.setMsg("请求成功");
+//        response.setData(articles);
 
 //        Gson gson = new Gson();
 //        String json = gson.toJson(response);
-        resp.setContentType("application/json;charset=utf-8");
+//        resp.setContentType("application/json;charset=utf-8");
 
 //        PrintWriter out = resp.getWriter();
 //        out.print("<html> <head> <title>首页</title> </head> <body> ");
