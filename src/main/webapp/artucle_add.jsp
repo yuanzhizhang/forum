@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%if(session.getAttribute("name") ==null){
+        response.sendRedirect(request.getContextPath() + "/login.jsp");
+    }%>
     <title>Title</title>
     <link rel="stylesheet" href="layui/css/layui.css">
 </head>
