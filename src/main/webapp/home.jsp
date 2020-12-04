@@ -40,6 +40,7 @@
                     %>
                     <%if(name!=null){
                         out.print(name);
+                        out.print("<a href=\"loginout\">退了</a>");
                     }else{
                         out.print("登录");
                     }%>
