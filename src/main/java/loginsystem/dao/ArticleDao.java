@@ -43,16 +43,18 @@ public class ArticleDao {
         return articles;
     }
 
-    public static List<Article> getPersonArticles(String name) {
+    public static List<Article> getPersonArticles(String name,int page, int limit) {
         List<Article> articles = new ArrayList<Article>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         Connection connection = DBUtil.getConnection();
-        String sql = "select * from article where user = ?;";
+        String sql = "select * from article where user = ? limit ?, ?;";
 
         try {
             statement = connection.prepareCall(sql);
             statement.setString(1,name);
+            statement.setInt(2, (page - 1) * limit);
+            statement.setInt(3, limit);
 
             resultSet = statement.executeQuery();
             while(resultSet.next()){
@@ -143,6 +145,27 @@ public class ArticleDao {
             DBUtil.close(null,statement,connection);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        }
+
+        return rows;
+    }
+
+    public static int getCount(String name)
+    {
+        Connection connection = DBUtil.getConnection();
+        String sql = "select count(*) from article where user = ?";
+        int rows = 0;
+        try {
+            PreparedStatement statement = connection.prepareCall(sql);
+            statement.setString(1,name);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next())
+            {
+                rows = resultSet.getInt(1);
+            }
+            DBUtil.close(resultSet, statement, connection);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         return rows;

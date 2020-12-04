@@ -1,6 +1,7 @@
 package loginsystem.servlet;
 
 import com.google.gson.Gson;
+import com.mysql.cj.util.StringUtils;
 import loginsystem.dao.ArticleDao;
 import loginsystem.entity.Article;
 import loginsystem.entity.BaseResponse;
@@ -25,9 +26,9 @@ public class ArticleAllServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.setCharacterEncoding("utf-8");
-//        List<Article> articles = ArticleDao.getArticles();
+
+
         List<Article> articles = ArticleDao.getArticles();
-//        System.out.println(articles.get(0));
         String[] title=new String[articles.size()];
         String[] id=new String[articles.size()];
         for(int i=0;i<articles.size();i++){

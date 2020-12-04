@@ -109,8 +109,16 @@
         const tableIns = table.render({
             elem: '#demo'
             ,url: 'article/person' //数据接口
+            ,page: true //开启分页
+            , cellMinWidth: 80
+            , defaultToolbar: ['filter', 'print', 'exports']
+            , toolbar: '#toolbarDemo'
             ,response: {
-                statusCode: 200 //规定成功的状态码，默认：0
+                statusCode: 200 //规定成功的状态码，默认：0,
+            }
+            ,request:{
+                pageName:'page',
+                limitName:'limit'
             }
             ,cols: [[ //表头
                 {field: 'title', title: 'title', sort: true, fixed: 'left'}

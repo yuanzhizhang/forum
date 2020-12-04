@@ -1,6 +1,7 @@
 package loginsystem.servlet;
 
 import com.google.gson.Gson;
+import com.mysql.cj.util.StringUtils;
 import loginsystem.dao.ArticleDao;
 import loginsystem.entity.Article;
 import loginsystem.entity.BaseResponse;
@@ -23,11 +24,22 @@ public class ArticlePersonServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.setCharacterEncoding("utf-8");
+
+        String page = req.getParameter("page");
+        String limit = req.getParameter("limit");
+
         HttpSession session = req.getSession();
-        List<Article> articles = ArticleDao.getPersonArticles((String)session.getAttribute("name"));
+//        List<Article> articles = ArticleDao.getPersonArticles((String)session.getAttribute("name"));
+//        StringUtils.isNullOrEmpty(page) ? 1 :
+//        StringUtils.isNullOrEmpty(limit) ? 10 :
+                List<Article> articles = ArticleDao.getPersonArticles((String)session.getAttribute("name"),Integer.parseInt(page),
+                Integer.parseInt(limit));
+
+        int rows = ArticleDao.getCount((String)session.getAttribute("name"));
 
         BaseResponse<List<Article>> response = new BaseResponse<List<Article>>();
         response.setCode(200);
+        response.setCount(rows);
         response.setMsg("请求成功");
         response.setData(articles);
 

@@ -5,9 +5,18 @@ public class BaseResponse<T> {
     private int code;
     private String msg;
     private T data;
+    private int count;
 
     public BaseResponse() {
 
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getCount() {
+        return count;
     }
 
     public BaseResponse(int code, String msg, T data) {
