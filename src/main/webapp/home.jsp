@@ -60,8 +60,8 @@
 <%String[] title = (String[]) session.getAttribute("title");
     String[] id = (String[]) session.getAttribute("id");
 %>
-<%for(int i=0;i< title.length;i++){
-    out.print("<a href=\"article.jsp?id="+id[i]+"\">"+title[i]+"</a><br>");
+<%for(int i=title.length;i>0;i--){
+    out.print("<a href=\"article.jsp?id="+id[i-1]+"\">"+title[i-1]+"</a><br>");
 }%>
 </h1>
     <div id="dg" style="z-index: 9999; position: fixed ! important; right: 100px; top: 100px;">
