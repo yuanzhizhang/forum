@@ -19,10 +19,6 @@ public class AddArticleServlet extends HttpServlet {
         resp.setCharacterEncoding("utf-8");
         HttpSession session = req.getSession();
 
-        if(session.getAttribute("name") ==null){
-            resp.sendRedirect(req.getContextPath() + "/login.jsp");
-            return;
-        }
 //        System.out.println(session.getAttribute("name"));
         String title = req.getParameter("title");
         String text = req.getParameter("text");

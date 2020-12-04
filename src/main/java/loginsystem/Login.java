@@ -36,9 +36,12 @@ public class Login extends HttpServlet {
         while(iterator.hasNext()){
             User user = (User) iterator.next();
             if(name.equals(user.getUname())){
+                session.setAttribute("name",user.getUname());
                 if(pwd.equals(user.getPassword())){
-                    session.setAttribute("name",user.getUname());
-                    resp.sendRedirect(req.getContextPath() + "/admin.jsp");
+                    System.out.println("111");
+
+//                    resp.sendRedirect(req.getContextPath() + "/admin.jsp");
+                    req.getRequestDispatcher("admin.jsp").forward(req,resp);
                     break;
                 }
             }

@@ -13,15 +13,12 @@
     <div class="layui-form" >
 
         <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label"></label>
-                <div class="layui-input-inline">
-                    <label>
-                        <input id="comment" type="text" required name="comment" class="layui-input" >
-                    </label>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">正文</label>
+                <div class="layui-input-block">
+                    <textarea id="text" name="comment" placeholder="请输入内容"  class="layui-textarea"></textarea>
                 </div>
             </div>
-
         </div>
 
         <div class="layui-form-item layui-hide">

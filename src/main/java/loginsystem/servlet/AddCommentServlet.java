@@ -25,15 +25,13 @@ public class AddCommentServlet extends HttpServlet {
         HttpSession session = req.getSession();
 
         Gson gson = new Gson();
-        String stuJson = RequestUtil.getRequestBody(req);
+        String comJson = RequestUtil.getRequestBody(req);
         // 修改时提交的数据
-        Comment comBody = gson.fromJson(stuJson, Comment.class);
+        Comment comBody = gson.fromJson(comJson, Comment.class);
 
         String artID = (String) session.getAttribute("artID");
         String user = (String) session.getAttribute("name");
-        if(user == null){
-            resp.sendRedirect(req.getContextPath() + "/login.jsp");
-        }
+
         int rows = CommentDao.addComment(comBody,artID,user);
 
         BaseResponse<Integer> baseResponse = new BaseResponse<Integer>();

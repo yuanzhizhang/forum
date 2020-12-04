@@ -15,6 +15,7 @@ public class LoginOut extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         HttpSession session =req.getSession();
         session.invalidate();
-        resp.sendRedirect(req.getContextPath() + "/login.jsp");
+//        resp.sendRedirect(req.getContextPath() + "/login.jsp");
+        req.getRequestDispatcher("login.jsp").forward(req,resp);
     }
 }

@@ -16,7 +16,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">标题</label>
                 <div class="layui-input-inline">
-                    <input id="title" style="width:300%" class="layui-text" name="title">
+                    <input id="title" style="width:300%" readonly class="layui-text" name="title">
                 </div>
             </div>
             <br>
