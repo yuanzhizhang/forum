@@ -1,4 +1,6 @@
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="loginsystem.dao.ArticleDao" %>
+<%@ page import="loginsystem.entity.Article" %><%--
   Created by IntelliJ IDEA.
   User: 13602
   Date: 2020/12/1
@@ -57,13 +59,15 @@
 
 </style>
     <h1>
-<%String[] title = (String[]) session.getAttribute("title");
-    String[] id = (String[]) session.getAttribute("id");
+<%
+//    String[] title = (String[]) session.getAttribute("title");
+//    String[] id = (String[]) session.getAttribute("id");
+    ArrayList<Article> list = (ArrayList) ArticleDao.getArticles();
+    for(int i=list.size();i>0;i--){
+        out.print("<a href=\"article.jsp?id="+list.get(i-1).getId()+"\">"+list.get(i-1).getTitle()+"</a><br>");
+    }
 %>
-<%for(int i=title.length;i>0;i--){
-    out.print("<a href=\"article.jsp?id="+id[i-1]+"\">"+title[i-1]+"</a><br>");
-}%>
-</h1>
+        </h1>
     <div id="dg" style="z-index: 9999; position: fixed ! important; right: 100px; top: 100px;">
         <table width=""100% style="position: absolute; width:260px; right: 100px; top: 100px;">
             <a href="artucle_add.jsp"><h1><button type="button" class="layui-btn">+</button></h1></a>
