@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" autoFlush="true" pageEncoding="utf-8" %>
 <html lang="java">
 <head>
-    <meta http-equiv="refresh" content="3;url=http://localhost:8080/forum_war_exploded/login.jsp" />
+    <meta http-equiv="refresh" content="3;url=/greet/login.jsp" />
     <meta charset="utf-8">
     <title>注册</title>
     <link rel="stylesheet" href="layui/css/layui.css">

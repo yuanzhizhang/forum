@@ -22,6 +22,7 @@
     <blockquote class="layui-elem-quote layui-text">
         文章：
     </blockquote>
+    <a href="home.jsp"><button>返回首页</button></a>
 
     <form class="layui-form" action="">
 

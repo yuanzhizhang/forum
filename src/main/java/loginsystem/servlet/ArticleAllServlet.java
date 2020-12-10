@@ -1,11 +1,7 @@
 package loginsystem.servlet;
 
-import com.google.gson.Gson;
-import com.mysql.cj.util.StringUtils;
 import loginsystem.dao.ArticleDao;
 import loginsystem.entity.Article;
-import loginsystem.entity.BaseResponse;
-import sun.plugin.dom.core.Element;
 
 
 import javax.servlet.ServletException;
@@ -15,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/index.jsp")
